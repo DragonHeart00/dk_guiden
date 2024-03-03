@@ -105,9 +105,9 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                  href="https://blog.rahuljha.info/"
-                  target="_blank"
-                  rel="noreferrer"
+                  as={Link}
+                  to="/opret-virksomhed"
+                  onClick={() => updateExpanded(false)}
               >
                 OPRET VIRKSOMHED
               </Nav.Link>
