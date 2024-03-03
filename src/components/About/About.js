@@ -7,8 +7,6 @@ import scandicdark from "../../Assets/scandic.png";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 import "./about.css";
-import logoDark from "../../Assets/logoDark.png";
-import logoLight from "../../Assets/logoLight.png";
 import {ThemeContext} from "../../Context/theme";
 
 function About() {
@@ -89,22 +87,6 @@ function About() {
 
               </Col>
           </Row>
-          {/*<h1 data-aos="fade-right">*/}
-          {/*  <span className="primary-header">Skillset</span> I Work With*/}
-          {/*</h1>*/}
-
-          {/*<div data-aos="fade-up">*/}
-          {/*  <Techstack />*/}
-          {/*</div>*/}
-
-          {/*<h1 data-aos="fade-right">*/}
-          {/*  <span className="primary-header">Tools</span> I use*/}
-        {/*</h1>*/}
-        {/*<div data-aos="fade-up">*/}
-        {/*  <Toolstack data-aos="fade-up" />*/}
-        {/*</div>*/}
-
-        {/*<Github />*/}
       </Container>
       <ScrollToTop />
     </Container>

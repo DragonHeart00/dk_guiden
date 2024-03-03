@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
-import ProjectCard from "./ProjectCards";
+import ProjectCard from "./ServiceCards";
 
 import emailLight from "../../Assets/Services/2.png";
 import emailDark from "../../Assets/Services/1.png";
@@ -30,10 +30,10 @@ import seoDark from "../../Assets/Services/23.png";
 import faceLight from "../../Assets/Services/26.png";
 import faceDark from "../../Assets/Services/25.png";
 
-import "./project.css";
+import "./service.css";
 import {ThemeContext} from "../../Context/theme";
 
-function Projects() {
+function Service() {
   const [{ themename, toggeltheme }] = useContext(ThemeContext);
   return (
       <Container fluid className="project-section">
@@ -181,4 +181,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Service;

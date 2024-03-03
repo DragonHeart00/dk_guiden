@@ -5,7 +5,7 @@ import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 import {GiPriceTag} from "react-icons/gi";
 
-function ProjectCards(props) {
+function ServiceCards(props) {
     return (
         <Card className="project-card-view">
             <Card.Img
@@ -16,7 +16,7 @@ function ProjectCards(props) {
             />
             <Card.Body>
                 <Card.Title style={{fontWeight:"bold"}}>{props.title}</Card.Title>
-                <Card.Text style={{ textAlign: "start" }}>
+                <Card.Text >
                     {props.description}
                 </Card.Text>
 
@@ -39,4 +39,4 @@ function ProjectCards(props) {
         </Card>
     );
 }
-export default ProjectCards;
+export default ServiceCards;

@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.26b5a8b9.css",
-    "main.js": "/static/js/main.bdcbbe6c.js",
-    "static/js/496.a504db9e.chunk.js": "/static/js/496.a504db9e.chunk.js",
+    "main.css": "/static/css/main.f6785c7d.css",
+    "main.js": "/static/js/main.fc66d146.js",
+    "static/js/522.5d748fea.chunk.js": "/static/js/522.5d748fea.chunk.js",
     "static/media/Avatar.png": "/static/media/Avatar.eea60b4460abf2f710d0.png",
     "static/media/homeicons.svg": "/static/media/homeicons.635077bdda0ab43ae14208bcfda93699.svg",
     "static/media/logoLight.png": "/static/media/logoLight.c2b7d3834ccea79267b1.png",
@@ -34,15 +34,13 @@
     "static/media/13.png": "/static/media/13.b7b606a23bc3fcdff8b7.png",
     "static/media/14.png": "/static/media/14.14c0d0c5bf61b4398007.png",
     "static/media/scandicdark.png": "/static/media/scandicdark.7ca1b8b455121b52f670.png",
+    "static/media/google_icon.png": "/static/media/google_icon.b7ddba62517f45fbd409.png",
     "static/media/scandic.png": "/static/media/scandic.6c2728c39c20806001af.png",
     "static/media/pre.svg": "/static/media/pre.74b00c043f4cea5fb393.svg",
-    "index.html": "/index.html",
-    "main.26b5a8b9.css.map": "/static/css/main.26b5a8b9.css.map",
-    "main.bdcbbe6c.js.map": "/static/js/main.bdcbbe6c.js.map",
-    "496.a504db9e.chunk.js.map": "/static/js/496.a504db9e.chunk.js.map"
+    "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.26b5a8b9.css",
-    "static/js/main.bdcbbe6c.js"
+    "static/css/main.f6785c7d.css",
+    "static/js/main.fc66d146.js"
   ]
 }

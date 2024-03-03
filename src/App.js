@@ -3,7 +3,7 @@ import Preloader from "../src/components/preloader/Preloader";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
-import Projects from "./components/Service/Projects";
+import Service from "./components/Service/Service";
 import Footer from "./components/footer/Footer";
 import { ThemeContext } from "./Context/theme";
 import {
@@ -38,7 +38,7 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/ydelsere" element={<Projects />} />
+            <Route path="/ydelsere" element={<Service />} />
             <Route path="/om-os" element={<About />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" />} />

@@ -4,15 +4,7 @@ import logoLight from "../../Assets/logoLight.png";
 import logoDark from "../../Assets/logoDark.png";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import { ThemeContext } from "../../Context/theme";
-import faceLight from "../../Assets/Services/26.png";
-import faceDark from "../../Assets/Services/25.png";
-import instaLight from "../../Assets/Services/8.png";
-import instaDark from "../../Assets/Services/7.png";
-import tiktokLight from "../../Assets/Services/10.png";
-import tiktokDark from "../../Assets/Services/9.png";
 import "./contact.css";
-import Techstack from "../About/Techstack";
-import Toolstack from "../About/Toolstack";
 import {AiFillGithub, AiFillInstagram, AiOutlineMail, AiOutlineTwitter} from "react-icons/ai";
 import {FaFacebook, FaLinkedinIn, FaTiktok} from "react-icons/fa";
 
@@ -50,7 +42,7 @@ function Contact() {
                                     <ul className="home-about-social-links" data-aos="fade-up">
                                         <li className="social-icons">
                                             <a
-                                                href="https://github.com/Rahuljha4171"
+                                                href="https://halaal.dk"
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 className="icon-colour  home-social-icons"
@@ -61,7 +53,7 @@ function Contact() {
                                         </li>
                                         <li className="social-icons">
                                             <a
-                                                href="https://twitter.com/kumardotexe"
+                                                href="https://halaal.dk"
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 className="icon-colour  home-social-icons"
@@ -72,7 +64,7 @@ function Contact() {
                                         </li>
                                         <li className="social-icons">
                                             <a
-                                                href="https://www.instagram.com/dead.programmer/"
+                                                href="https://halaal.dk"
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 className="icon-colour home-social-icons"
