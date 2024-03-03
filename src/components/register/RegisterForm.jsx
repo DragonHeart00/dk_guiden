@@ -16,7 +16,7 @@ function RegisterForm() {
     return (
         <MDBContainer fluid >
 
-            <MDBRow className='d-flex justify-content-center align-items-center' style={{marginTop:120}}>
+            <MDBRow className='d-flex justify-content-center align-items-center py-5' style={{marginTop:80}}>
                 <MDBCol col='8' className='m-5'>
                     <MDBCard className='card-registration card-registration-2' style={{borderRadius: '15px'}}>
                         <MDBCardBody>
