@@ -7,6 +7,8 @@ import { ThemeContext } from "../../Context/theme";
 import "./contact.css";
 import {AiFillGithub, AiFillInstagram, AiOutlineMail, AiOutlineTwitter} from "react-icons/ai";
 import {FaFacebook, FaLinkedinIn, FaTiktok} from "react-icons/fa";
+import Toolstack from "../About/Toolstack";
+import Home2 from "../Home/Home2";
 
 function Contact() {
     const [{ themename, toggeltheme }] = useContext(ThemeContext);
@@ -14,7 +16,6 @@ function Contact() {
     return (
         <Container fluid className="contact-section">
             <Container>
-
                 <Row style={{ justifyContent: "center", padding: "10px"}}>
                     <Col
                         md={5}
@@ -92,6 +93,9 @@ function Contact() {
 
                     </Col>
                 </Row>
+
+            </Container>
+            <Container>
 
             </Container>
             <ScrollToTop/>

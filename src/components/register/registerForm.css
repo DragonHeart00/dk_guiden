@@ -1,4 +1,12 @@
+#backgroud {
+    background-image: url(../../Assets/logoDark.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
+.registerForm {
+    padding: 50px;
+}
 
 @media (min-width: 759px) {
     .card-registration-2 .bg-indigo {
@@ -25,5 +33,10 @@
     .card-registration-2 .bg-white {
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
+    }
+}
+@media (max-width: 758px) {
+    .registerForm {
+        padding: 10px; /* Adjust padding for smaller screens */
     }
 }
