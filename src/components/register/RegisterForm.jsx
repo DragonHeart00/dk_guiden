@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -10,120 +10,150 @@ import {
     MDBCheckbox
 } from 'mdb-react-ui-kit';
 import "./registerForm.css";
+import { addStore } from "../../services/firebaseFun";
+
 function RegisterForm() {
+    const [formValues, setFormValues] = useState({
+        store_name: '',
+        cvr_nr: '',
+        postNumber: '',
+        address: '',
+        city: '',
+        email: '',
+        name: '',
+        lastName:'',
+        phone:'',
+        category: '' // Added category field to state
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await addStore(formValues);
+            window.location.href = "/confirm";
+            // Handle success or navigation to next page
+        } catch (error) {
+            console.error('Error adding store:', error);
+            // Handle error
+        }
+    };
+
+    const categories = [
+        "Handyman",
+        "Skrædder",
+        "Elektronik",
+        "Bilmekaniker",
+        "Maler",
+        "Smed",
+        "Cykelmekaniker",
+        "Butik",
+        "Økonomi",
+        "Lovgivning",
+        "VVS",
+        "Personlig træner",
+        "Murer",
+        "Tandlæge",
+        "Psykolog og rådgivning",
+        "Køreskoler",
+        "Undervisning",
+        "Tømer",
+        "Sneoprydning",
+        "Gartner",
+        "Elektriker",
+        "Læger",
+        "Køletekniker",
+        "Frisør",
+        "Guld og sølv butikker",
+        "Urmager",
+        "Fotograf",
+        "Vaskeri & renseri",
+        "Rengøring"
+    ];
+
     return (
-        <MDBContainer  >
-            <MDBRow className='d-flex justify-content-center align-items-center py-5' style={{marginTop:80}}>
+        <MDBContainer>
+            <MDBRow className='d-flex justify-content-center align-items-center py-5' style={{ marginTop: 80 }}>
                 <MDBCol className='registerForm'>
                     <MDBCard className='card-registration card-registration-2'>
                         <MDBCardBody>
-                            <MDBRow>
-                                <MDBCol md='6' className='p-5'>
-                                    <h3 className="fw-normal mb-5 text-start" style={{color:'#03467a'}}>DK GUIDEN REGISTRERING FORM</h3>
-                                    <h5 className="fw-normal mb-3 text-start">VIRKSOMHED INFORMATION</h5>
-                                    <MDBRow>
-                                        <MDBCol md='6'>
-                                            <MDBInput wrapperClass='mb-4' id='form1' type='text'
-                                                      placeholder={"Viksomheds navn"}/>
-                                        </MDBCol>
-                                        <MDBCol md='6'>
-                                            <MDBInput wrapperClass='mb-4' id='form2' type='text'
-                                                      placeholder={"CVR-nummer"}/>
-                                        </MDBCol>
-                                    </MDBRow>
-                                    <MDBRow>
-                                        <MDBInput wrapperClass='mb-4' id='form4' type='text' placeholder={"Adresse"}/>
-                                    </MDBRow>
-                                    <MDBRow>
-                                        <MDBCol md='3'>
-                                            <MDBInput wrapperClass='mb-4' id='form6' type='text'
-                                                      placeholder={"Postnummer"}/>
-                                        </MDBCol>
+                            <form onSubmit={handleSubmit}>
+                                <MDBRow>
+                                    <MDBCol md='6' className='p-5'>
+                                        <h3 className="fw-normal mb-5 text-start" style={{ color: '#03467a' }}>DK GUIDEN REGISTRERING FORM</h3>
+                                        <h5 className="fw-normal mb-3 text-start">VIRKSOMHED INFORMATION</h5>
+                                        <MDBRow>
+                                            <MDBCol md='6'>
+                                                <MDBInput wrapperClass='mb-4' name='store_name' type='text' placeholder={"Viksomheds navn"} value={formValues.store_name} onChange={handleInputChange} required />
+                                            </MDBCol>
+                                            <MDBCol md='6'>
+                                                <MDBInput wrapperClass='mb-4' name='cvr_nr' type='text' placeholder={"CVR-nummer"} value={formValues.cvr_nr} onChange={handleInputChange} pattern="\d+" title="Kun tal tilladt" required />
+                                            </MDBCol>
+                                        </MDBRow>
+                                        <MDBRow>
+                                            <MDBInput wrapperClass='mb-4' name='address' type='text' placeholder={"Adresse"} value={formValues.address} onChange={handleInputChange} required />
+                                        </MDBRow>
+                                        <MDBRow>
+                                            <MDBCol md='3'>
+                                                <MDBInput wrapperClass='mb-4' name='postNumber' type='text' placeholder={"Postnummer"} value={formValues.postNumber} pattern="\d+" title="Kun tal tilladt" onChange={handleInputChange} required />
+                                            </MDBCol>
 
-                                        <MDBCol md='9'>
-                                            <MDBInput wrapperClass='mb-4' id='form7' type='text' placeholder={"By"}/>
-                                        </MDBCol>
-                                    </MDBRow>
+                                            <MDBCol md='9'>
+                                                <MDBInput wrapperClass='mb-4' name='city' type='text' placeholder={"By"} value={formValues.city} onChange={handleInputChange} required />
+                                            </MDBCol>
+                                        </MDBRow>
 
-                                    <h5 className="fw-normal mb-3 mt-5 text-start">KONTAKTOPLYSNINGER</h5>
-                                    <MDBRow>
-                                        <MDBCol md='6'>
-                                            <MDBInput wrapperClass='mb-4' id='form1' type='text'
-                                                      placeholder={"Fornavn"}/>
-                                        </MDBCol>
-                                        <MDBCol md='6'>
-                                            <MDBInput wrapperClass='mb-4' id='form2' type='text'
-                                                      placeholder={"Efternavn"}/>
-                                        </MDBCol>
-                                    </MDBRow>
-                                    <MDBRow>
-                                        <MDBInput wrapperClass='mb-4' id='form4' type='text' placeholder={"Mail"}/>
-                                    </MDBRow>
-                                    <MDBRow>
-                                        <MDBInput wrapperClass='mb-4' id='form7' type='text'
-                                                  placeholder={"Telefon Nummer "}/>
-                                    </MDBRow>
+                                        <h5 className="fw-normal mb-3 mt-5 text-start">KONTAKTOPLYSNINGER</h5>
+                                        <MDBRow>
+                                            <MDBCol md='6'>
+                                                <MDBInput wrapperClass='mb-4' name='name' type='text' placeholder={"Fornavn"} value={formValues.name} onChange={handleInputChange} required />
+                                            </MDBCol>
+                                            <MDBCol md='6'>
+                                                <MDBInput wrapperClass='mb-4' name='lastName' type='text' placeholder={"Efternavn"} value={formValues.lastName} onChange={handleInputChange} required />
+                                            </MDBCol>
+                                        </MDBRow>
+                                        <MDBRow>
+                                            <MDBInput wrapperClass='mb-4' name='email' type='email' placeholder={"Mail"} value={formValues.email} onChange={handleInputChange} required />
+                                        </MDBRow>
+                                        <MDBRow>
+                                            <MDBInput wrapperClass='mb-4' name='phone' type='tel' placeholder={"Telefon Nummer "} value={formValues.phone} pattern="\d+" title="Kun tal tilladt" onChange={handleInputChange} required />
+                                        </MDBRow>
 
-                                    <h5 className="fw-normal mb-3 mt-5 text-start">VÆLG DIN KATEGORI</h5>
-                                    <MDBRow>
-                                        <MDBCol md='12' className={"pb-5 fw-normal"}>
-                                            <select className="form-select" aria-label="example">
-                                                <option selected disabled>Vælg kategori</option>
-                                                <option value="Handyman">Handyman</option>
-                                                <option value="Skrædder">Skrædder</option>
-                                                <option value="Elektronik">Elektronik</option>
-                                                <option value="Bilmekaniker">Bilmekaniker</option>
-                                                <option value="Maler">Maler</option>
-                                                <option value="Smed">Smed</option>
-                                                <option value="Cykelmekaniker">Cykelmekaniker</option>
-                                                <option value="Butik">Butik</option>
-                                                <option value="Økonomi">Økonomi</option>
-                                                <option value="Lovgivning">Lovgivning</option>
-                                                <option value="VVS">VVS</option>
-                                                <option value="Personlig træner">Personlig træner</option>
-                                                <option value="Murer">Murer</option>
-                                                <option value="Tandlæge">Tandlæge</option>
-                                                <option value="Psykolog og rådgivning">Psykolog og rådgivning</option>
-                                                <option value="Køreskoler">Køreskoler</option>
-                                                <option value="Undervisning">Undervisning</option>
-                                                <option value="Tømer">Tømer</option>
-                                                <option value="Sneoprydning">Sneoprydning</option>
-                                                <option value="Gartner">Gartner</option>
-                                                <option value="Elektriker">Elektriker</option>
-                                                <option value="Læger">Læger</option>
-                                                <option value="Køletekniker">Køletekniker</option>
-                                                <option value="Frisør">Frisør</option>
-                                                <option value="Guld og sølv butikker">Guld og sølv butikker</option>
-                                                <option value="Urmager">Urmager</option>
-                                                <option value="Fotograf">Fotograf</option>
-                                                <option value="Vaskeri & renseri">Vaskeri & renseri</option>
-                                                <option value="Rengøring">Rengøring</option>
-                                            </select>
+                                        <h5 className="fw-normal mb-3 mt-5 text-start">VÆLG DIN KATEGORI</h5>
+                                        <MDBRow>
+                                            <MDBCol md='12' className={"pb-5 fw-normal"}>
+                                                <select className="form-select" aria-label="example" name='category' value={formValues.category} onChange={handleInputChange} required>
+                                                    <option selected disabled>Vælg kategori</option>
+                                                    {categories.map((category, index) => (
+                                                        <option key={index} value={category}>{category}</option>
+                                                    ))}
+                                                </select>
+                                            </MDBCol>
+                                            <MDBCol md='9'>
+                                                <MDBCheckbox name='flexCheck' id='flexCheckDefault' labelClass='mb-4'
+                                                             label='Jeg bekræfter hermed, at DK guiden må bevare ovenstående oplysninger.' required/>
+                                            </MDBCol>
+                                        </MDBRow>
+                                        <MDBRow className={"justify-content-end"}>
+                                            <MDBCol md='2'>
+                                                <MDBBtn color='light' type="submit">TILMELD</MDBBtn>
+                                            </MDBCol>
+                                        </MDBRow>
+                                    </MDBCol>
 
-                                        </MDBCol>
-                                        <MDBCol md='9'>
-                                            <MDBCheckbox name='flexCheck' id='flexCheckDefault' labelClass='mb-4'
-                                                         label='Jeg bekræfter hermed, at DK guiden må bevare ovenstående oplysninger.'/>
-                                        </MDBCol>
-                                    </MDBRow>
-                                    <MDBRow className={"justify-content-end"}>
-                                        <MDBCol md='2'>
-                                            <MDBBtn color='light'>TILMELD</MDBBtn>
-                                        </MDBCol>
-                                    </MDBRow>
-                                </MDBCol>
+                                    <MDBCol id={"backgroud"}>
 
-                                <MDBCol id={"backgroud"}>
-
-                                </MDBCol>
-                            </MDBRow>
-
+                                    </MDBCol>
+                                </MDBRow>
+                            </form>
                         </MDBCardBody>
                     </MDBCard>
-
                 </MDBCol>
             </MDBRow>
-
         </MDBContainer>
     );
 }

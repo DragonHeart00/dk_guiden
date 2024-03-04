@@ -17,6 +17,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Contact from "./components/Contact/Contact";
 import RegistrationForm from "./components/register/RegisterForm";
+import ConfirmScreen from "./components/confirm/ConfirmScreen";
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -42,6 +43,7 @@ function App() {
             <Route path="/ydelsere" element={<Service />} />
             <Route path="/om-os" element={<About />} />
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="/confirm" element={<ConfirmScreen />} />
             <Route path="/opret-virksomhed" element={<RegistrationForm />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
