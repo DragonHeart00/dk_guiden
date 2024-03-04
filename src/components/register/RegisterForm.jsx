@@ -12,9 +12,9 @@ import {
 import "./registerForm.css";
 function RegisterForm() {
     return (
-        <MDBContainer fluid >
+        <MDBContainer  >
             <MDBRow className='d-flex justify-content-center align-items-center py-5' style={{marginTop:80}}>
-                <MDBCol col='8' className='registerForm'>
+                <MDBCol className='registerForm'>
                     <MDBCard className='card-registration card-registration-2'>
                         <MDBCardBody>
                             <MDBRow>
