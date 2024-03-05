@@ -7,7 +7,7 @@ const ConfirmScreen = () => {
 
     return (
         <Container>
-            <Row className="justify-content-center align-items-center" style={{ minHeight: '52vh' }}>
+            <Row className="justify-content-center align-items-center" style={{ minHeight: '52vh' ,paddingTop: '5%' }}>
                 <Col xs={12} sm={8} md={6}>
                     <Card className="p-4">
                         <div style={{ textAlign: 'center' }}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -26,6 +26,9 @@ function RegisterForm() {
         category: '' // Added category field to state
     });
 
+    const [loading, setLoading] = useState(false); // State to control loading icon visibility
+    const [showButton, setShowButton] = useState(false); // State to control register button visibility
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: value });
@@ -34,14 +37,24 @@ function RegisterForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            setLoading(true); // Show loading icon
             await addStore(formValues);
             window.location.href = "/confirm";
             // Handle success or navigation to next page
         } catch (error) {
             console.error('Error adding store:', error);
             // Handle error
+        } finally {
+            setLoading(false); // Hide loading icon
         }
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowButton(true); // Show register button after a delay
+        }, 2000); // Adjust the delay time (in milliseconds) as needed
+        return () => clearTimeout(timer);
+    }, []);
 
     const categories = [
         "Handyman",
@@ -140,7 +153,11 @@ function RegisterForm() {
                                         </MDBRow>
                                         <MDBRow className={"justify-content-end"}>
                                             <MDBCol md='2'>
-                                                <MDBBtn color='light' type="submit">TILMELD</MDBBtn>
+                                                {showButton && (
+                                                    <MDBBtn color='light' type="submit" disabled={loading}>
+                                                        {loading ? "Loading..." : "TILMELD"}
+                                                    </MDBBtn>
+                                                )}
                                             </MDBCol>
                                         </MDBRow>
                                     </MDBCol>

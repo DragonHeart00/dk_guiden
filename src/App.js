@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Preloader from "../src/components/preloader/Preloader";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
@@ -20,37 +19,27 @@ import RegistrationForm from "./components/register/RegisterForm";
 import ConfirmScreen from "./components/confirm/ConfirmScreen";
 
 function App() {
-  const [load, upadateLoad] = useState(true);
   const [{ themename }] = React.useContext(ThemeContext);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className={`${themename} app`}>
-      <Router>
-        <Preloader load={load} />
-        <div className="App" id={load ? "no-scroll" : "scroll"}>
-          <Navbar />
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/ydelsere" element={<Service />} />
-            <Route path="/om-os" element={<About />} />
-            <Route path="/kontakt" element={<Contact />} />
-            <Route path="/confirm" element={<ConfirmScreen />} />
-            <Route path="/opret-virksomhed" element={<RegistrationForm />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-          <Footer />
-        </div>
-      </Router>
-    </div>
+      <div className={`${themename} app`}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <ScrollToTop />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/ydelsere" element={<Service />} />
+              <Route path="/om-os" element={<About />} />
+              <Route path="/kontakt" element={<Contact />} />
+              <Route path="/confirm" element={<ConfirmScreen />} />
+              <Route path="/opret-virksomhed" element={<RegistrationForm />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+            <Footer />
+          </div>
+        </Router>
+      </div>
   );
 }
 
