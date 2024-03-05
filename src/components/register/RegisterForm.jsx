@@ -31,8 +31,17 @@ function RegisterForm() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
+        if (name === 'cvr_nr' && value.length > 8) {
+            // If the input field is 'cvr_nr' and the value length is more than 8, truncate the value
+            setFormValues({ ...formValues, [name]: value.slice(0, 8) });
+        } else if (name === 'postNumber' && value.length > 4) {
+            // If the input field is 'postNumber' and the value length is more than 4, truncate the value
+            setFormValues({ ...formValues, [name]: value.slice(0, 4) });
+        } else {
+            setFormValues({ ...formValues, [name]: value });
+        }
     };
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
